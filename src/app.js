@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const products = require('./routes/products.router');
 const categories = require('./routes/categories.router');
 const users = require('./routes/users.router');
+const welcome = require('./routes/welcome.router');
 const cors = require('cors');
 
 require('./db.js');
@@ -32,6 +33,7 @@ server.use(cors());
 server.use('/products', products);
 server.use('/categories', categories);
 server.use('/users', users);
+server.use('/', welcome);
 
 server.use((err, req, res, next) => {
   const status = err.status || 500;
